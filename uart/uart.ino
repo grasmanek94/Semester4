@@ -197,7 +197,7 @@ void setup()
     PORTB |= _BV(PORTB2);
     digitalWrite(10, 1);
     delay(5000);
-    
+    /*
     // disable interrupts
     cli();
     
@@ -208,22 +208,22 @@ void setup()
     // CTC Mode
     TCCR1B |= _BV(WGM12);
     
-    // Prescaler 64
-    TCCR1B |= _BV(CS10) | _BV(CS11);
+    // Prescaler 1024
+    TCCR1B |= _BV(CS10) | _BV(CS12);
     
     // Timer interrupt enable
     TIMSK1 = 0;
     TIMSK1 |= _BV(OCIE1A);
     
     // enable global interrupts
-    sei();
+    sei();*/
 }
 
 uint8_t xxxx = 0;
 void loop() 
 {
-    //delay(1);
-    //ProcessSend();
+    delay(10);
+    ProcessSend();
     //ProcessReceive();
     /*if(xxxx < 3)
     {
