@@ -47,7 +47,7 @@ ISR(INT0_vect)
         //hi to lo | fall | receiving
         //long = '1', short = '0'
                     
-        if(receive_timer > 6)
+        if(receive_timer > 4)
         {
             data |= 1 << pos;         
         }
@@ -77,9 +77,9 @@ bool SendBit(bool bit)
         sending = true;
         PIN2_HIGH();
     }
-    else if(sending && receive_timer > 2)
+    else if(sending)
     {
-        if(!bit || (bit && receive_timer > 9))
+        if(!bit || (bit && receive_timer > 6))
         {
             PIN2_LOW();
             sending = false;
