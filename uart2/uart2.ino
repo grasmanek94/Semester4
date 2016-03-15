@@ -1,6 +1,6 @@
 #include "ByteBuffer.h"
 volatile int timeCounterMax = 0;
-
+volatile int timeCounter = 0;
 ByteBuffer buffer;
 
 void (*whichLoop)();
@@ -120,6 +120,7 @@ ISR(TIMER1_COMPA_vect)
 {
     PORTB ^= _BV(PORTB1);    
     ++receive_timer;
+    ++timeCounter;
     whichTimer();
 }
 
@@ -160,21 +161,20 @@ void PerformInterruptSetup()
     TIMSK1 = 0;
     TIMSK1 |= _BV(OCIE1A);
 
-   //kleiner getal dan dit en het werkt niet meer [256], with the current number config we have 5681 kib/s:
-    OCR1A = 256; // 1 = 62.5 nanoseconds
+   //kleiner getal dan dit en het werkt niet meer [256 of 207], with the current number config we have 5681 kib/s:
+    OCR1A = 2048; // 1 = 62.5 nanoseconds
     // enable global interrupts
     sei(); 
 }
 
-//keep sending hello world\r\n
+int oldValue = 0;
 void LoopSend()
 {
-    if(buffer.put(str[str_pos]))
+    int cVal = analogRead(A0) / 10;
+    if(cVal != oldValue)
     {
-        if(++str_pos == 13)
-        {
-            str_pos = 0;
-        }
+        buffer.put(cVal);
+        oldValue = cVal;
     }
 }
 
@@ -182,7 +182,13 @@ void LoopReceive()
 {
     while(buffer.getSize())
     {
-        Serial.write(buffer.get());
+        timeCounterMax = buffer.get()*10;
+    }
+
+    if(timeCounter > timeCounterMax)
+    {
+        timeCounter = 0;
+        PIN13_TOGGLE();
     }
 }
 
