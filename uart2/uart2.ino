@@ -161,7 +161,7 @@ void PerformInterruptSetup()
     TIMSK1 |= _BV(OCIE1A);
 
    //kleiner getal dan dit en het werkt niet meer [256], with the current number config we have 5681 kib/s:
-    OCR1A = 256; // 1 = 62.5 nanoseconds
+    OCR1A = 2048; // 1 = 62.5 nanoseconds
     // enable global interrupts
     sei(); 
 }
@@ -192,7 +192,7 @@ void setup()
     pinMode(A0, INPUT_PULLUP);
     
     timeCounterMax = analogRead(A0);
-    buffer.init(1024);
+    buffer.init(32);
     
     if(timeCounterMax > 64)
     {
