@@ -1,0 +1,5 @@
+D:\Development\WebShop\WebShopService\bin\Debug\WebShopService.dll.config
+D:\Development\WebShop\WebShopService\bin\Debug\WebShopService.dll
+D:\Development\WebShop\WebShopService\bin\Debug\WebShopService.pdb
+D:\Development\WebShop\WebShopService\obj\Debug\WebShopService.dll
+D:\Development\WebShop\WebShopService\obj\Debug\WebShopService.pdb

@@ -1,0 +1,8 @@
+D:\Development\WebShop\WebShopClient\bin\Debug\WebShopClient.exe.config
+D:\Development\WebShop\WebShopClient\bin\Debug\WebShopClient.exe
+D:\Development\WebShop\WebShopClient\bin\Debug\WebShopClient.pdb
+D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.Properties.Resources.resources
+D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.csproj.GenerateResource.Cache
+D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.exe
+D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.pdb
+D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.MainWindow.resources
