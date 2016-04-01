@@ -9,105 +9,10 @@
 //------------------------------------------------------------------------------
 
 namespace WebShopClient.WebShopService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/WebShopService")]
-    [System.SerializableAttribute()]
-    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PriceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ProductIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StockField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProductId {
-            get {
-                return this.ProductIdField;
-            }
-            set {
-                if ((this.ProductIdField.Equals(value) != true)) {
-                    this.ProductIdField = value;
-                    this.RaisePropertyChanged("ProductId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Stock {
-            get {
-                return this.StockField;
-            }
-            set {
-                if ((this.StockField.Equals(value) != true)) {
-                    this.StockField = value;
-                    this.RaisePropertyChanged("Stock");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebShopService.IWebShopService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebShopService.IWebShopService", CallbackContract=typeof(WebShopClient.WebShopService.IWebShopServiceCallback))]
     public interface IWebShopService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/GetName", ReplyAction="http://tempuri.org/IWebShopService/GetNameResponse")]
@@ -129,16 +34,47 @@ namespace WebShopClient.WebShopService {
         System.Threading.Tasks.Task<bool> BuyProductAsync(int productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/GetProductList", ReplyAction="http://tempuri.org/IWebShopService/GetProductListResponse")]
-        WebShopClient.WebShopService.Product[] GetProductList();
+        WebShopInterface.Product[] GetProductList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/GetProductList", ReplyAction="http://tempuri.org/IWebShopService/GetProductListResponse")]
-        System.Threading.Tasks.Task<WebShopClient.WebShopService.Product[]> GetProductListAsync();
+        System.Threading.Tasks.Task<WebShopInterface.Product[]> GetProductListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/GetOrderList", ReplyAction="http://tempuri.org/IWebShopService/GetOrderListResponse")]
+        WebShopInterface.Order[] GetOrderList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/GetOrderList", ReplyAction="http://tempuri.org/IWebShopService/GetOrderListResponse")]
+        System.Threading.Tasks.Task<WebShopInterface.Order[]> GetOrderListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/RefreshProductStock", ReplyAction="http://tempuri.org/IWebShopService/RefreshProductStockResponse")]
         int RefreshProductStock(int productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/RefreshProductStock", ReplyAction="http://tempuri.org/IWebShopService/RefreshProductStockResponse")]
         System.Threading.Tasks.Task<int> RefreshProductStockAsync(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/ShipOrder", ReplyAction="http://tempuri.org/IWebShopService/ShipOrderResponse")]
+        bool ShipOrder(WebShopInterface.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/ShipOrder", ReplyAction="http://tempuri.org/IWebShopService/ShipOrderResponse")]
+        System.Threading.Tasks.Task<bool> ShipOrderAsync(WebShopInterface.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/SubscribeToNewOrders", ReplyAction="http://tempuri.org/IWebShopService/SubscribeToNewOrdersResponse")]
+        void SubscribeToNewOrders();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebShopService/SubscribeToNewOrders", ReplyAction="http://tempuri.org/IWebShopService/SubscribeToNewOrdersResponse")]
+        System.Threading.Tasks.Task SubscribeToNewOrdersAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IWebShopServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IWebShopService/productShipped")]
+        void productShipped(WebShopInterface.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IWebShopService/productStockChanged")]
+        void productStockChanged(int productId, int stock);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IWebShopService/newOrder")]
+        void newOrder(WebShopInterface.Order order);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -147,25 +83,26 @@ namespace WebShopClient.WebShopService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WebShopServiceClient : System.ServiceModel.ClientBase<WebShopClient.WebShopService.IWebShopService>, WebShopClient.WebShopService.IWebShopService {
+    public partial class WebShopServiceClient : System.ServiceModel.DuplexClientBase<WebShopClient.WebShopService.IWebShopService>, WebShopClient.WebShopService.IWebShopService {
         
-        public WebShopServiceClient() {
+        public WebShopServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public WebShopServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public WebShopServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public WebShopServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public WebShopServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public WebShopServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public WebShopServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public WebShopServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public WebShopServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public string GetName() {
@@ -192,12 +129,20 @@ namespace WebShopClient.WebShopService {
             return base.Channel.BuyProductAsync(productId);
         }
         
-        public WebShopClient.WebShopService.Product[] GetProductList() {
+        public WebShopInterface.Product[] GetProductList() {
             return base.Channel.GetProductList();
         }
         
-        public System.Threading.Tasks.Task<WebShopClient.WebShopService.Product[]> GetProductListAsync() {
+        public System.Threading.Tasks.Task<WebShopInterface.Product[]> GetProductListAsync() {
             return base.Channel.GetProductListAsync();
+        }
+        
+        public WebShopInterface.Order[] GetOrderList() {
+            return base.Channel.GetOrderList();
+        }
+        
+        public System.Threading.Tasks.Task<WebShopInterface.Order[]> GetOrderListAsync() {
+            return base.Channel.GetOrderListAsync();
         }
         
         public int RefreshProductStock(int productId) {
@@ -206,6 +151,22 @@ namespace WebShopClient.WebShopService {
         
         public System.Threading.Tasks.Task<int> RefreshProductStockAsync(int productId) {
             return base.Channel.RefreshProductStockAsync(productId);
+        }
+        
+        public bool ShipOrder(WebShopInterface.Order order) {
+            return base.Channel.ShipOrder(order);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ShipOrderAsync(WebShopInterface.Order order) {
+            return base.Channel.ShipOrderAsync(order);
+        }
+        
+        public void SubscribeToNewOrders() {
+            base.Channel.SubscribeToNewOrders();
+        }
+        
+        public System.Threading.Tasks.Task SubscribeToNewOrdersAsync() {
+            return base.Channel.SubscribeToNewOrdersAsync();
         }
     }
 }

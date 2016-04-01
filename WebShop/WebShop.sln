@@ -10,6 +10,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopClient", "WebShopCli
 		{C06F14C6-9686-4E27-A9BA-646E6A6EFE1F} = {C06F14C6-9686-4E27-A9BA-646E6A6EFE1F}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopBackOffice", "WebShopBackOffice\WebShopBackOffice.csproj", "{B79BBF4C-0DD5-4031-9B19-FDD2EAD48309}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C06F14C6-9686-4E27-A9BA-646E6A6EFE1F} = {C06F14C6-9686-4E27-A9BA-646E6A6EFE1F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopInterface", "WebShopInterface\WebShopInterface.csproj", "{8A3B680A-2044-457C-B0E6-1AAF51C99ABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +31,14 @@ Global
 		{73465FA3-711D-49EA-B40A-00A48CA1F9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73465FA3-711D-49EA-B40A-00A48CA1F9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73465FA3-711D-49EA-B40A-00A48CA1F9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B79BBF4C-0DD5-4031-9B19-FDD2EAD48309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B79BBF4C-0DD5-4031-9B19-FDD2EAD48309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B79BBF4C-0DD5-4031-9B19-FDD2EAD48309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B79BBF4C-0DD5-4031-9B19-FDD2EAD48309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3B680A-2044-457C-B0E6-1AAF51C99ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3B680A-2044-457C-B0E6-1AAF51C99ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3B680A-2044-457C-B0E6-1AAF51C99ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3B680A-2044-457C-B0E6-1AAF51C99ABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

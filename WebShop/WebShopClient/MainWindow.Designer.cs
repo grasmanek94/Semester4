@@ -131,7 +131,7 @@
             this.buyBtn.Name = "buyBtn";
             this.buyBtn.Size = new System.Drawing.Size(365, 23);
             this.buyBtn.TabIndex = 8;
-            this.buyBtn.Text = "Buy";
+            this.buyBtn.Text = "Order";
             this.buyBtn.UseVisualStyleBackColor = true;
             this.buyBtn.Click += new System.EventHandler(this.buyBtn_Click);
             // 

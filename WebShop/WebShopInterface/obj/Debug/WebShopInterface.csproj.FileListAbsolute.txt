@@ -1,0 +1,4 @@
+D:\Development\Semester4\WebShop\WebShopInterface\bin\Debug\WebShopInterface.dll
+D:\Development\Semester4\WebShop\WebShopInterface\bin\Debug\WebShopInterface.pdb
+D:\Development\Semester4\WebShop\WebShopInterface\obj\Debug\WebShopInterface.dll
+D:\Development\Semester4\WebShop\WebShopInterface\obj\Debug\WebShopInterface.pdb

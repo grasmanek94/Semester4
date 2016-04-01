@@ -3,3 +3,11 @@ D:\Development\WebShop\WebShopService\bin\Debug\WebShopService.dll
 D:\Development\WebShop\WebShopService\bin\Debug\WebShopService.pdb
 D:\Development\WebShop\WebShopService\obj\Debug\WebShopService.dll
 D:\Development\WebShop\WebShopService\obj\Debug\WebShopService.pdb
+D:\Development\Semester4\WebShop\WebShopService\bin\Debug\WebShopService.dll.config
+D:\Development\Semester4\WebShop\WebShopService\bin\Debug\WebShopService.dll
+D:\Development\Semester4\WebShop\WebShopService\bin\Debug\WebShopService.pdb
+D:\Development\Semester4\WebShop\WebShopService\obj\Debug\WebShopService.dll
+D:\Development\Semester4\WebShop\WebShopService\obj\Debug\WebShopService.pdb
+D:\Development\Semester4\WebShop\WebShopService\bin\Debug\WebShopInterface.dll
+D:\Development\Semester4\WebShop\WebShopService\bin\Debug\WebShopInterface.pdb
+D:\Development\Semester4\WebShop\WebShopService\obj\Debug\WebShopService.csprojResolveAssemblyReference.cache

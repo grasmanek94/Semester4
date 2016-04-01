@@ -1,0 +1,11 @@
+D:\Development\Semester4\WebShop\WebShopBackOffice\bin\Debug\WebShopBackOffice.exe.config
+D:\Development\Semester4\WebShop\WebShopBackOffice\bin\Debug\WebShopBackOffice.exe
+D:\Development\Semester4\WebShop\WebShopBackOffice\bin\Debug\WebShopBackOffice.pdb
+D:\Development\Semester4\WebShop\WebShopBackOffice\obj\Debug\WebShopBackOffice.Properties.Resources.resources
+D:\Development\Semester4\WebShop\WebShopBackOffice\obj\Debug\WebShopBackOffice.csproj.GenerateResource.Cache
+D:\Development\Semester4\WebShop\WebShopBackOffice\obj\Debug\WebShopBackOffice.exe
+D:\Development\Semester4\WebShop\WebShopBackOffice\obj\Debug\WebShopBackOffice.pdb
+D:\Development\Semester4\WebShop\WebShopBackOffice\obj\Debug\WebShopBackOffice.MainWindow.resources
+D:\Development\Semester4\WebShop\WebShopBackOffice\bin\Debug\WebShopInterface.dll
+D:\Development\Semester4\WebShop\WebShopBackOffice\bin\Debug\WebShopInterface.pdb
+D:\Development\Semester4\WebShop\WebShopBackOffice\obj\Debug\WebShopBackOffice.csprojResolveAssemblyReference.cache

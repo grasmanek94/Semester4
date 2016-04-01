@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace WebShopService
+namespace WebShopInterface
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IWebShopCallback))]
     public interface IWebShopService
     {
         [OperationContract]
@@ -23,7 +23,48 @@ namespace WebShopService
         List<Product> GetProductList();
 
         [OperationContract]
+        List<Order> GetOrderList();
+
+        [OperationContract]
         int RefreshProductStock(int productId);
+
+        [OperationContract]
+        bool ShipOrder(Order order);
+
+        [OperationContract]
+        void SubscribeToNewOrders();
+    }
+
+    public interface IWebShopCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void productShipped(Order order);
+
+        [OperationContract(IsOneWay = true)]
+        void productStockChanged(int productId, int stock);
+
+        [OperationContract(IsOneWay = true)]
+        void newOrder(Order order);
+    }
+
+    [DataContract]
+    public class Order
+    {
+        [DataMember]
+        public int ProductId { get; set; }
+
+        [DataMember]
+        public string Name { get; set; }
+
+        [DataMember]
+        public DateTime Moment { get; set; }
+
+        public IWebShopCallback Callback { get; set; }
+
+        public override string ToString()
+        {
+            return Name + " (" + ProductId.ToString() + ") @ " + Moment.ToString();
+        }
     }
 
     [DataContract]

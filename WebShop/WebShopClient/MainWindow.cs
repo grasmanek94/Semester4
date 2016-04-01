@@ -8,19 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebShopClient.WebShopService;
+using System.ServiceModel;
+using WebShopInterface;
 
 namespace WebShopClient
 {
-    public partial class MainWindow : Form
+    public partial class MainWindow : Form, IWebShopServiceCallback
     {
         WebShopServiceClient shop;
         Product selectedProduct;
+        InstanceContext instanceContext;
 
         public MainWindow()
         {
             InitializeComponent();
-            shop = new WebShopServiceClient();
 
+            instanceContext = new InstanceContext(this);
+            shop = new WebShopServiceClient(instanceContext);
+        
             shopNameLabel.Text = "You are now shopping at: " + shop.GetName();
 
             productsView.DataSource = new BindingList<Product>(shop.GetProductList());
@@ -57,13 +62,37 @@ namespace WebShopClient
                 return;
             }
 
-            if(selectedProduct.Stock != -1)
-            {
-                selectedProduct.Stock = shop.RefreshProductStock(selectedProduct.ProductId);
-                inputInStockLabel.Text = selectedProduct.Stock.ToString();
-            }
+            selectedProduct.Stock = shop.RefreshProductStock(selectedProduct.ProductId);
+            inputInStockLabel.Text = selectedProduct.Stock.ToString();
 
             MessageBox.Show("Product purchased");
+        }
+
+        public void productShipped(Order order)
+        {
+            MessageBox.Show("Product " + order.Name + " (" + order.ProductId.ToString() + ") has shipped at " + order.Moment.ToString());
+        }
+
+        public void productStockChanged(int productId, int stock)
+        {
+            foreach (DataGridViewRow row in productsView.Rows)
+            {
+                Product p = row.DataBoundItem as Product;
+                if (p != null && p.ProductId == productId)
+                {
+                    p.Stock = stock;
+                    if (p == selectedProduct)
+                    {
+                        inputInStockLabel.Text = p.Stock.ToString();
+                    }
+                    break;
+                }
+            }
+        }
+
+        public void newOrder(Order order)
+        {
+            //not needed for client
         }
     }
 }

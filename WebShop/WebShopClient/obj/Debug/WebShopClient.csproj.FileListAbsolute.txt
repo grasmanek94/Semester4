@@ -6,3 +6,14 @@ D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.csproj.GenerateReso
 D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.exe
 D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.pdb
 D:\Development\WebShop\WebShopClient\obj\Debug\WebShopClient.MainWindow.resources
+D:\Development\Semester4\WebShop\WebShopClient\bin\Debug\WebShopClient.exe.config
+D:\Development\Semester4\WebShop\WebShopClient\obj\Debug\WebShopClient.exe
+D:\Development\Semester4\WebShop\WebShopClient\obj\Debug\WebShopClient.pdb
+D:\Development\Semester4\WebShop\WebShopClient\bin\Debug\WebShopClient.exe
+D:\Development\Semester4\WebShop\WebShopClient\bin\Debug\WebShopClient.pdb
+D:\Development\Semester4\WebShop\WebShopClient\obj\Debug\WebShopClient.MainWindow.resources
+D:\Development\Semester4\WebShop\WebShopClient\obj\Debug\WebShopClient.Properties.Resources.resources
+D:\Development\Semester4\WebShop\WebShopClient\obj\Debug\WebShopClient.csproj.GenerateResource.Cache
+D:\Development\Semester4\WebShop\WebShopClient\bin\Debug\WebShopInterface.dll
+D:\Development\Semester4\WebShop\WebShopClient\bin\Debug\WebShopInterface.pdb
+D:\Development\Semester4\WebShop\WebShopClient\obj\Debug\WebShopClient.csprojResolveAssemblyReference.cache
